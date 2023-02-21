@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjt0svmvvw7hv"]
+
+[ext_resource type="Shader" path="res://Shader/_1.gdshader" id="1_h4woh"]
+[ext_resource type="Texture2D" uid="uid://spmjw1b0gaay" path="res://Texture/Back.png" id="2_0658m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_58c5c"]
+shader = ExtResource("1_h4woh")
+shader_parameter/_Color = Color(0.505882, 0.372549, 0.372549, 1)
+
+[node name="Shader" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_58c5c")
+offset_right = 1131.0
+offset_bottom = 613.125
+texture = ExtResource("2_0658m")
+expand_mode = 5
