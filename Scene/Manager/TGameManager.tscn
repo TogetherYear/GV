@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bndabqrernbai"]
+
+[ext_resource type="Script" path="res://Scene/Manager/TGameManager.cs" id="1_jgivi"]
+
+[node name="TGameManager" type="Node"]
+script = ExtResource("1_jgivi")
