@@ -13,5 +13,6 @@ public partial class TGameManager : TSingleton<TGameManager>
     public override void _Ready()
     {
         Input.MouseMode = Input.MouseModeEnum.Captured;
+        Engine.MaxFps = 144;
     }
 }

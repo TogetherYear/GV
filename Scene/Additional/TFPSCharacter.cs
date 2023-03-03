@@ -6,8 +6,8 @@ public partial class TFPSCharacter : CharacterBody3D
     [Export]
     public Camera3D camera;
 
-    [Export(PropertyHint.Range, "1.0f,10.0f")]
-    public float Speed = 5.0f;
+    [Export(PropertyHint.Range, "100.0f,1000.0f")]
+    public float Speed = 100.0f;
 
     [Export(PropertyHint.Range, "0.0f,1.0f")]
     public float rotateSpeed = 0.15f;
@@ -17,12 +17,12 @@ public partial class TFPSCharacter : CharacterBody3D
 
     public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
-    public override void _PhysicsProcess(double delta)
+    public override void _Process(double delta)
     {
         Vector3 velocity = Velocity;
 
         if (!IsOnFloor())
-            velocity.Y -= gravity * (float)delta;
+            velocity.Y -= gravity * TGameManager.Instance.deltaTime;
 
         if (Input.IsActionJustPressed("Jump") && IsOnFloor())
         {
@@ -33,15 +33,14 @@ public partial class TFPSCharacter : CharacterBody3D
         Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
         if (direction != Vector3.Zero)
         {
-            velocity.X = direction.X * Speed;
-            velocity.Z = direction.Z * Speed;
+            velocity.X = direction.X * Speed * TGameManager.Instance.deltaTime;
+            velocity.Z = direction.Z * Speed * TGameManager.Instance.deltaTime;
         }
         else
         {
             velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
             velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
         }
-
         Velocity = velocity;
         MoveAndSlide();
     }

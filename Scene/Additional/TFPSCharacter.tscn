@@ -14,7 +14,8 @@ axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_m416s")
 camera = NodePath("Camera3D")
-rotateSpeed = 0.1
+Speed = 600.0
+rotateSpeed = 0.2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
 mesh = SubResource("CapsuleMesh_mwm18")

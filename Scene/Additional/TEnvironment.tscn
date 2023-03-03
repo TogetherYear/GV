@@ -16,7 +16,7 @@ data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0,
 
 [sub_resource type="BoxMesh" id="BoxMesh_3fahw"]
 
-[node name="Environment" type="Node3D"]
+[node name="TEnvironment" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0pkqs")

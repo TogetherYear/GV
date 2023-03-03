@@ -8,7 +8,7 @@
 
 [node name="TGameManager" parent="." instance=ExtResource("1_6k0q2")]
 
-[node name="Environment" parent="." instance=ExtResource("2_084co")]
-
 [node name="TFPSCharacter" parent="." instance=ExtResource("2_scxln")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.481877, 1.29513, 3.87627)
+
+[node name="TEnvironment" parent="." instance=ExtResource("2_084co")]
