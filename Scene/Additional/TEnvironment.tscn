@@ -1,14 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bf2dpq605v3eu"]
+[gd_scene load_steps=5 format=3 uid="uid://bf2dpq605v3eu"]
 
 [sub_resource type="Environment" id="Environment_0pkqs"]
 ambient_light_source = 2
 ambient_light_color = Color(0.368627, 0.431373, 0.439216, 1)
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.5
+volumetric_fog_density = 0.4
 volumetric_fog_albedo = Color(0, 0, 0, 1)
 volumetric_fog_emission = Color(0.266667, 0.313726, 0.321569, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_c3ije"]
+size = Vector2(20, 20)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_v3bvu"]
+data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
 
 [sub_resource type="BoxMesh" id="BoxMesh_3fahw"]
 
@@ -23,8 +27,13 @@ light_color = Color(0.988235, 0.631373, 0.431373, 1)
 light_energy = 5.0
 
 [node name="Plane" type="MeshInstance3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("PlaneMesh_c3ije")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Plane"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plane/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_v3bvu")
 
 [node name="Box" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_3fahw")

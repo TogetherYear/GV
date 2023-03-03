@@ -1,16 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://vgu4gwhlt7qp"]
+[gd_scene load_steps=4 format=3 uid="uid://bvrucd1qpfrkr"]
 
-[ext_resource type="PackedScene" uid="uid://bi7kskqkj5ipg" path="res://Scene/Widget/TButton/TButton.tscn" id="1_bgw4x"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_gg21l"]
+[ext_resource type="PackedScene" uid="uid://bndabqrernbai" path="res://Scene/Manager/TGameManager.tscn" id="1_6k0q2"]
+[ext_resource type="PackedScene" uid="uid://bf2dpq605v3eu" path="res://Scene/Additional/TEnvironment.tscn" id="2_084co"]
+[ext_resource type="PackedScene" uid="uid://0oeuovhrls3a" path="res://Scene/Additional/TFPSCharacter.tscn" id="2_scxln"]
 
 [node name="Main" type="Node3D"]
 
-[node name="TButton" parent="." instance=ExtResource("1_bgw4x")]
+[node name="TGameManager" parent="." instance=ExtResource("1_6k0q2")]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.906182, 0.422887, 0, -0.422887, 0.906182, 0, 1.7955, 2.43177)
+[node name="Environment" parent="." instance=ExtResource("2_084co")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.56001, -0.588689, 0.582954, 0.407827, 0.80836, 0.424536, -0.721156, 0, 0.692773, 0, 0, 0)
-mesh = SubResource("BoxMesh_gg21l")
+[node name="TFPSCharacter" parent="." instance=ExtResource("2_scxln")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.481877, 1.29513, 3.87627)
