@@ -1,14 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvrucd1qpfrkr"]
+[gd_scene load_steps=4 format=3 uid="uid://4wrue8pm18ex"]
 
-[ext_resource type="PackedScene" uid="uid://bndabqrernbai" path="res://Scene/Manager/TGameManager.tscn" id="1_6k0q2"]
-[ext_resource type="PackedScene" uid="uid://bf2dpq605v3eu" path="res://Scene/Additional/TEnvironment.tscn" id="2_084co"]
-[ext_resource type="PackedScene" uid="uid://0oeuovhrls3a" path="res://Scene/Additional/TFPSCharacter.tscn" id="2_scxln"]
+[ext_resource type="PackedScene" path="res://Manager/TGameManager/TGameManager.tscn" id="1_dpj8d"]
+[ext_resource type="PackedScene" uid="uid://bf2dpq605v3eu" path="res://Additional/TEnvironment/TEnvironment.tscn" id="1_lalk8"]
+[ext_resource type="PackedScene" path="res://Additional/TFPSCharacter/TFPSCharacter.tscn" id="2_843w3"]
 
 [node name="Main" type="Node3D"]
 
-[node name="TGameManager" parent="." instance=ExtResource("1_6k0q2")]
+[node name="TGameManager" parent="." instance=ExtResource("1_dpj8d")]
 
-[node name="TFPSCharacter" parent="." instance=ExtResource("2_scxln")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.481877, 1.29513, 3.87627)
+[node name="TEnvironment" parent="." instance=ExtResource("1_lalk8")]
 
-[node name="TEnvironment" parent="." instance=ExtResource("2_084co")]
+[node name="TFPSCharacter" parent="." instance=ExtResource("2_843w3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.82249)

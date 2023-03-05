@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://0oeuovhrls3a"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://Scene/Additional/TFPSCharacter.cs" id="1_m416s"]
+[ext_resource type="Script" path="res://Additional/TFPSCharacter/TFPSCharacter.cs" id="1_0sruu"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mwm18"]
 
@@ -12,7 +12,7 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 axis_lock_angular_x = true
 axis_lock_angular_z = true
-script = ExtResource("1_m416s")
+script = ExtResource("1_0sruu")
 camera = NodePath("Camera3D")
 Speed = 600.0
 rotateSpeed = 0.2
