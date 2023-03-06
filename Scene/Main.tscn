@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" path="res://Manager/TGameManager/TGameManager.tscn" id="1_dpj8d"]
 [ext_resource type="PackedScene" uid="uid://bf2dpq605v3eu" path="res://Additional/TEnvironment/TEnvironment.tscn" id="1_lalk8"]
-[ext_resource type="PackedScene" path="res://Additional/TFPSCharacter/TFPSCharacter.tscn" id="2_843w3"]
+[ext_resource type="PackedScene" uid="uid://jgtacgrequou" path="res://Additional/TFPSCharacter/TFPSCharacter.tscn" id="2_843w3"]
 
 [node name="Main" type="Node3D"]
 

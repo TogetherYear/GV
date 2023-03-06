@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bf2dpq605v3eu"]
+[gd_scene load_steps=4 format=3 uid="uid://bf2dpq605v3eu"]
 
 [sub_resource type="Environment" id="Environment_0pkqs"]
 ambient_light_source = 2
@@ -14,8 +14,6 @@ size = Vector2(20, 20)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_v3bvu"]
 data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
 
-[sub_resource type="BoxMesh" id="BoxMesh_3fahw"]
-
 [node name="TEnvironment" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -23,7 +21,7 @@ environment = SubResource("Environment_0pkqs")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.08626, 0)
-light_color = Color(0.988235, 0.631373, 0.431373, 1)
+light_color = Color(0.603922, 0.784314, 0.784314, 1)
 light_energy = 5.0
 
 [node name="Plane" type="MeshInstance3D" parent="."]
@@ -34,6 +32,3 @@ mesh = SubResource("PlaneMesh_c3ije")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Plane/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_v3bvu")
-
-[node name="Box" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_3fahw")

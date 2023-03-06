@@ -38,14 +38,14 @@ public partial class TFPSCharacter : CharacterBody3D
         }
         else
         {
-            velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
-            velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
+            velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed * TGameManager.Instance.deltaTime);
+            velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed * TGameManager.Instance.deltaTime);
         }
         Velocity = velocity;
         MoveAndSlide();
     }
 
-    public override void _UnhandledInput(InputEvent @event)
+    public override void _Input(InputEvent @event)
     {
         if (@event is InputEventMouseMotion m)
         {
