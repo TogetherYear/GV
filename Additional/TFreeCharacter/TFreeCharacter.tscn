@@ -1,5 +1,12 @@
-[gd_scene format=3 uid="uid://bilagneyj2v2g"]
+[gd_scene load_steps=2 format=3 uid="uid://bilagneyj2v2g"]
+
+[ext_resource type="Script" path="res://Additional/TFreeCharacter/TFreeCharacter.cs" id="1_lqkod"]
 
 [node name="TFreeCharacter" type="Node3D"]
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Body" type="Node3D" parent="." node_paths=PackedStringArray("camera")]
+script = ExtResource("1_lqkod")
+camera = NodePath("Camera3D")
+speed = 10.0
+
+[node name="Camera3D" type="Camera3D" parent="Body"]

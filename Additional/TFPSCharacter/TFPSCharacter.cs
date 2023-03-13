@@ -7,7 +7,7 @@ public partial class TFPSCharacter : CharacterBody3D
     public Camera3D camera;
 
     [Export(PropertyHint.Range, "100.0f,1000.0f")]
-    public float Speed = 100.0f;
+    public float speed = 100.0f;
 
     [Export(PropertyHint.Range, "0.0f,1.0f")]
     public float rotateSpeed = 0.15f;
@@ -33,13 +33,13 @@ public partial class TFPSCharacter : CharacterBody3D
         Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
         if (direction != Vector3.Zero)
         {
-            velocity.X = direction.X * Speed * TGameManager.Instance.deltaTime;
-            velocity.Z = direction.Z * Speed * TGameManager.Instance.deltaTime;
+            velocity.X = direction.X * speed * TGameManager.Instance.deltaTime;
+            velocity.Z = direction.Z * speed * TGameManager.Instance.deltaTime;
         }
         else
         {
-            velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed * TGameManager.Instance.deltaTime);
-            velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed * TGameManager.Instance.deltaTime);
+            velocity.X = Mathf.MoveToward(Velocity.X, 0, speed * TGameManager.Instance.deltaTime);
+            velocity.Z = Mathf.MoveToward(Velocity.Z, 0, speed * TGameManager.Instance.deltaTime);
         }
         Velocity = velocity;
         MoveAndSlide();

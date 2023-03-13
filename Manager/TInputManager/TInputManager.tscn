@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5y4j72xumnir"]
+
+[ext_resource type="Script" path="res://Manager/TInputManager/TInputManager.cs" id="1_sd2dr"]
+
+[node name="TInputManager" type="Node"]
+script = ExtResource("1_sd2dr")
