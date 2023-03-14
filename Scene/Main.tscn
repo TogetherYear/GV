@@ -1,11 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://4wrue8pm18ex"]
+[gd_scene load_steps=7 format=3 uid="uid://4wrue8pm18ex"]
 
 [ext_resource type="PackedScene" uid="uid://b5fjk03n1xkfp" path="res://Additional/TEnvironment/TDefaultEnvironment.tscn" id="1_7blaq"]
 [ext_resource type="PackedScene" path="res://Manager/TGameManager/TGameManager.tscn" id="1_dpj8d"]
 [ext_resource type="PackedScene" uid="uid://b5y4j72xumnir" path="res://Manager/TInputManager/TInputManager.tscn" id="1_phg1k"]
 [ext_resource type="PackedScene" uid="uid://bilagneyj2v2g" path="res://Additional/TFreeCharacter/TFreeCharacter.tscn" id="3_s4qya"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_xe43s"]
+[ext_resource type="PackedScene" uid="uid://dnmin0kgjwjys" path="res://Additional/TWidget/TToolWidget/TToolWidget.tscn" id="3_yqm1c"]
+[ext_resource type="PackedScene" uid="uid://cux0uomwvnoju" path="res://Additional/TStone/TStone.tscn" id="6_6ucs6"]
 
 [node name="Main" type="Node3D"]
 
@@ -13,10 +13,11 @@
 
 [node name="TInputManager" parent="." instance=ExtResource("1_phg1k")]
 
+[node name="TToolWidget" parent="." instance=ExtResource("3_yqm1c")]
+
 [node name="TDefaultEnvironment" parent="." instance=ExtResource("1_7blaq")]
 
 [node name="TFreeCharacter" parent="." instance=ExtResource("3_s4qya")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.01358)
-mesh = SubResource("BoxMesh_xe43s")
+[node name="TStone" parent="." instance=ExtResource("6_6ucs6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -3)

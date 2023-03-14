@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cux0uomwvnoju"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_m2a4o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rd3o1"]
+albedo_color = Color(0.129412, 0.129412, 0.129412, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_biif5"]
+
+[node name="TStone" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+disable_mode = 2
+mass = 10.0
+freeze = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("BoxMesh_m2a4o")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_rd3o1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_biif5")
