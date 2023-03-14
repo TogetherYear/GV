@@ -11,22 +11,26 @@ public partial class TInputManager : TSingleton<TInputManager>
 
     public Action<TKeyType> Jump;
 
-    public Action<TKeyType> Crouch;
+    public Vector2 inputDirection;
 
-    public Action<TKeyType> Sprint;
+    public float rd = 0.0f;
 
     private bool isJump;
 
-    private bool isCrouch;
-
-    private bool isSprint;
-
     public override void _Input(InputEvent @event)
     {
-        DealNormalKeyEvent();
+        SetValues(@event);
+        DealKeyEvent();
+        DealKeyMotion();
     }
 
-    private void DealNormalKeyEvent()
+    private void SetValues(InputEvent @event)
+    {
+        inputDirection = Input.GetVector("A", "D", "W", "S");
+        rd = Input.GetAxis("Drop", "Rise");
+    }
+
+    private void DealKeyEvent()
     {
         if (Input.IsActionJustPressed("Jump"))
         {
@@ -38,25 +42,10 @@ public partial class TInputManager : TSingleton<TInputManager>
             isJump = false;
             Jump?.Invoke(TKeyType.Release);
         }
-        else if (Input.IsActionJustPressed("Crouch"))
-        {
-            isCrouch = true;
-            Crouch?.Invoke(TKeyType.Press);
-        }
-        else if (Input.IsActionJustReleased("Crouch"))
-        {
-            isCrouch = false;
-            Crouch?.Invoke(TKeyType.Release);
-        }
-        else if (Input.IsActionJustPressed("Sprint"))
-        {
-            isSprint = true;
-            Sprint?.Invoke(TKeyType.Press);
-        }
-        else if (Input.IsActionJustReleased("Sprint"))
-        {
-            isSprint = false;
-            Sprint?.Invoke(TKeyType.Release);
-        }
+    }
+
+    private void DealKeyMotion()
+    {
+
     }
 }

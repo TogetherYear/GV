@@ -9,24 +9,24 @@ public partial class TFreeCharacter : Node3D
     [Export(PropertyHint.Range, "1.0f,100.0f")]
     public float speed = 100.0f;
 
+
     [Export(PropertyHint.Range, "0.0f,1.0f")]
     public float rotateSpeed = 0.15f;
 
-    public override void _Ready()
-    {
-        TInputManager.Instance.Jump += (TInputManager.TKeyType t) =>
-        {
-            GD.Print(t);
-        };
-    }
 
     public override void _Process(double delta)
     {
-        Vector2 inputDir = Input.GetVector("A", "D", "W", "S");
-        if (inputDir != Vector2.Zero)
+        TransformPosition();
+    }
+
+    private void TransformPosition()
+    {
+        if (TInputManager.Instance.inputDirection != Vector2.Zero)
         {
-            TranslateObjectLocal(camera.Basis * new Vector3(inputDir.X, 0.0f, inputDir.Y) * speed * TGameManager.Instance.deltaTime);
+            TranslateObjectLocal(camera.Basis * new Vector3(TInputManager.Instance.inputDirection.X, 0.0f, TInputManager.Instance.inputDirection.Y) * speed * TGameManager.Instance.deltaTime);
         }
+        TranslateObjectLocal(camera.Basis * Vector3.Up * TInputManager.Instance.rd * speed * TGameManager.Instance.deltaTime);
+
     }
 
     public override void _Input(InputEvent @event)

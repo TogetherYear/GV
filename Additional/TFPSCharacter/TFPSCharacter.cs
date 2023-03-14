@@ -29,10 +29,9 @@ public partial class TFPSCharacter : CharacterBody3D
             velocity.Y = JumpVelocity;
         }
 
-        Vector2 inputDir = Input.GetVector("A", "D", "W", "S");
-        Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
-        if (direction != Vector3.Zero)
+        if (TInputManager.Instance.inputDirection != Vector2.Zero)
         {
+            Vector3 direction = (Transform.Basis * new Vector3(TInputManager.Instance.inputDirection.X, 0, TInputManager.Instance.inputDirection.Y)).Normalized();
             velocity.X = direction.X * speed * TGameManager.Instance.deltaTime;
             velocity.Z = direction.Z * speed * TGameManager.Instance.deltaTime;
         }
